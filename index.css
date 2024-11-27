@@ -1,0 +1,150 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0,.8);
+}
+body > * { flex: 0 0; }
+body > .bottom { flex: 1 1; }
+
+p { margin: 10px 0 }
+
+.scores {
+    height: fit-content;
+    padding: 3px 2em;
+    display: flex;
+}
+
+.score:not(.complete).perfect       { background: darkgrey; color: black; }
+.score:not(.complete):not(.perfect) { background: darkorange; color: black; }
+.score.complete:not(.perfect)       { background: darkred; color: white; }
+.score.complete.perfect             { background: darkgreen; color: white; }
+.score {
+    font-size: smaller;
+    text-align: center;
+    max-width: 10vw;
+    padding: 8px 1em;
+    width: fit-content;
+    margin: 0 5px;
+    font-family: monospace;
+}
+.score:empty { display: none !IMPORTANT; }
+
+.controls {
+    display: flex;
+    flex-direction: row;
+}
+.controls > * { flex: 1 1; }
+
+.title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}
+.title, .task:before {
+    font-size: larger;
+    text-decoration: underline;
+    font-family: monospace;
+    color: darkgoldenrod;
+}
+.intro {
+    color: darkgrey;
+    overflow-y: auto;
+    height: 100%;
+    margin: 0 1em;
+}
+
+.task {
+    color: darkgrey;
+    border-left: 1px solid black;
+    margin-top: 10px;
+    padding-left: 2em;
+    font-family: monospace;
+}
+.task:before {
+    content: "Task";
+    display: block;
+    margin: 0 5em 1em 0;
+}
+
+.actions {
+    padding: 3vw;
+}
+.action {
+    display: block;
+    width: 100%;
+    margin: 1em;
+    border: 1px solid;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 1em;
+    text-align: center;
+    background: rgba(255,255,255,.3);
+}
+.action:hover {
+    background-color: pink;
+}
+.action:active {
+    background-color: red;
+    border-color: darkred;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.code {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    padding: 15px;
+
+    font-family: monospace;    
+    color: lightgreen;
+    font-weight: bold;
+    background-color: rgba(0,0,0,.92);
+}
+
+.output { /* vertical bar */
+    max-width: 10vw;
+    white-space: pre-wrap;
+    border-top: 1px solid;
+    padding: 2em 4em;
+    height; 100%;
+
+    background-color: pink;
+    font-size: 14pt;
+    font-family: monospace;
+}
+.output:empty {
+    display: none;
+}
+
+
+footer {
+    font-family: monospace;
+    padding: 1em;
+    font-size: smaller;
+}
+footer, a, a:visited {
+    color: white;
+
+}
+
+    <div>
+        <div class="code"></div>
+        <div class="output"></div>
+    </div>
