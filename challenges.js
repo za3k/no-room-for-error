@@ -6,6 +6,7 @@ window.challenges = [
         code: function f() {
     return "Hello, world!"
 },
+
         test_cases: [
             [[], "Hello, world!"],
         ]
@@ -100,11 +101,11 @@ window.challenges = [
     
 },
         test_cases: [
-            [[1, 2, 3], false],
-            [[1, 2, 3, 4, 5, 6, 7], true],
-            [[8, 6, 33, 100], false],
-            [[2, 55, 60, 97, 86], true],
-            [[-77], true],
+            [[ [1, 2, 3] ], false],
+            [[ [1, 2, 3, 4, 5, 6, 7] ], true],
+            [[ [8, 6, 33, 100] ], false],
+            [[ [2, 55, 60, 97, 86] ], true],
+            [[ [-77] ], true],
         ],
     },
     {
@@ -149,33 +150,33 @@ window.challenges = [
             [[3.4], false],
             [[(1/0)], false], // Infinity
             [[(0/0)], false], // NaN
-            [[undefined], [false]],
-            [[null], [false]],
-            [[[2]], [false]],
-            [["2"], [false]],
-            [[false], [false]],
-            [[true], [false]],
+            [[undefined], false],
+            [[null], false],
+            [[[2]], false],
+            [["2"], false],
+            [[false], false],
+            [[true], false],
         ],
     },
     {
         title: 'Segmentation Fault',
         intro: 'You find him leaning against the wall, spinning a USB stick between his fingers like it’s a ninja star.  <p> “Here’s your next task,” he says, flicking the stick onto the counter. The label reads: “Totally Important Files. Do not lose.” <p> He taps the laptop and looks at you. “Files are a mess. Don’t ask me how. Clean it up—make it usable. No one should have to dig for what they need.” <p> He narrows his eyes. “One shot. Screw this up, and you’ll be reorganizing my coffee cup collection by level of stain.”',
-        task: 'Reverse the words in the sentence, keeping all punctuation, spacing, and capitalization. For example: <p> We bought apples, peaches, and bananas. <p> would become <p> Bananas and peaches, apples, bought we.',
+        task: 'Reverse the words in the sentence, keeping all punctuation, spacing, and capitalization. For example: <p> We bought apples, peaches, and bananas. <p> would become <p> Bananas and peaches, apples, bought we. <p> Hint: At least one common case is not in the example. <p> Hint 2: All test cases are ASCII-only.',
         code: function reverse(sentence_string) {
     
 },
         test_cases: [
             [["dogs are better than cats"], "cats than better are dogs"],
-            [["No, cats are better than dogs."], "Dogs, than better are cats."],
+            [["No, cats are better than dogs."], "Dogs, than better are cats no."],
             [["We bought apples, peaches, and bananas."], "Bananas and peaches, apples, bought we."],
-            [["Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo", "Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo"]],
+            [["Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo"], "Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo"],
             [["I LOVE SHOUTING"], "SHOUTING LOVE I"],
         ],
     },
     {
         title: 'Broken Logic',
         intro: 'You find him rummaging through a cabinet full of dusty cables, tapping his foot impatiently.  <p> "You\'re moving up," he mutters, tossing a ratty clipboard at you. The task is scrawled in sharp, urgent handwriting, but it’s vague enough to leave you scrambling.  <p> "Fix this. It’s gotta run on the old test system—the one no one’s bothered to touch in years. Whoever wrote this code clearly didn’t think anyone would need it again. Now it’s blocking production. If you don’t get it working, I’ll be running a different kind of test—on you. And if you finish early, find me a USB-C to Ethernet adapter. These drawers are worthless."',
-        task: 'Reduce the given (positive) fraction to its simplest form. Input and output will be strings. <p> Example: "8/6" reduces to "4/3"',
+        task: 'Reduce the given (positive) fraction to its simplest form. Input and output will be strings. <p> Example: "8/6" reduces to "4/3" <p> Example: "12/4" reduces to "3"',
         code: function simplify(fraction_string) {
     
 },
@@ -187,11 +188,11 @@ window.challenges = [
             [["8/4"], "2"],
             [["8/6"], "4/3"],
             [["8/6"], "4/3"],
-            [["1000100001/2000000010"], ["333366667/666666670"]],
+            [["1000100001/2000000010"], "333366667/666666670"],
         ]
     },
     {
-        title: 'The Infinite Loop',
+        title: 'Infinite Loop',
         intro: 'You find him in the middle of a warehouse, surrounded by giant, blinking servers and an entire team of engineers frantically running cables between enormous, old-fashioned rotary phones.  <p> “Alright,” he says, slapping a blueprint onto the table. “This is your final challenge. You’ve survived the chaos so far, but this? This matters. We need you to program a quantum algorithm for optimizing this phone system. We’re talking about 12 billion possible connection routes, each requiring real-time processing of voice data through a mechanical switchboard. It’s like trying to run a VAX cluster on an abacus.” <p> He glares at you. “Why? Simple. The customer support team’s been flooded with calls that keep getting routed to the wrong place. Some are sent to the CEO’s inbox—and he’s not happy. Others end up in an endless loop with an angry fax machine. Fix this, and you’ll stop us from having to explain to accounting why we’ve got 14,000 unopened ‘urgent’ messages from customers.” <p> He leans in. “If you succeed, I’ll make sure you get the rarest, most valuable prize I have: I’ll give you the rarest, most valuable prize I have: an actual working coffee machine, just for you. You’ll never have to drink that half-empty mug from 2 PM ever again. Seriously. This is your chance to enter the realm of the caffeinated elite."',
         task: 'Given a fraction, return the fixed and repeating part of its infinite decimal expansion. The fraction will be between 0 and 1. <p> Example 1: 1/6 = 0.166666..., so f("1/6") => ["0.1", "6"] <p> Example 2: f("3/4") => ["0.75", "0"] <p> Example 3: f("1/13") => ["0.", "076923"] <p> Note: You are encouraged to search online to learn how to solve the problem, as long as you don\'t read or copy code.',
         code: function vinculum(fraction_string) {
